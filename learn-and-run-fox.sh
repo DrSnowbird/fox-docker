@@ -1,5 +1,8 @@
 #!/bin/bash
 
+XMX=${XMX:-9G}
+LNG=${LNG:-en}
+
 sed -i -e 's#training: false#training: true#g' 'fox.properties'
 
 java -Xmx$XMX -cp fox-2.3.0-jar-with-dependencies.jar org.aksw.fox.FoxCLI -l$LNG -atrain -iinput/Wikiner/aij-wikiner-de-wp3.bz2 | tee learn.log
